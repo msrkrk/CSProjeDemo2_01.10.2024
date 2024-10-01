@@ -9,56 +9,13 @@ namespace CSProjeDemo2.Data
 {
     public class Yonetici : Personel
     {
-
-        private decimal _saatlikUcret;
-
-        public decimal SaatlikUcret
-        {
-            get { return _saatlikUcret; }
-            set
-            {
-                if (value < 500)
-                {
-                    throw new ArgumentException ("Yöneticilere ait saatlik ücret 500 TL'nin altında olamaz. Lütfen saatlik ücreti tekrar giriniz.");
-                }
-
-                else
-                    _saatlikUcret = value;
-            }
-        }
-
-
-        private int _calismaSaati;
-
-        public int CalismaSaati
-        {
-            get { return _calismaSaati; }
-            set
-            {
-
-                if (value < 0)
-                {
-                    throw new ArgumentException("Çalışma saati 0 saatden küçük olamaz!");
-                }
-                _calismaSaati = value;
-            }
-        }
-
-        private decimal _maas;
-
-        public decimal Maas
-        {
-            get { return _maas; }
-            set { _maas = value; }
-        }
-
+        // Aşağıdaki özelliklerin setterları yok çünkü set özelliğini bu sınıf içeresinde encapsule ediyoruz. Dışardan set yasak!
 
         private double _bonusOran;
 
         public double BonusOran
         {
             get { return _bonusOran; }
-            set { _bonusOran = value; }
         }
 
 
@@ -66,16 +23,44 @@ namespace CSProjeDemo2.Data
 
         public decimal Bonus
         {
-            get { return _maas * (decimal)_bonusOran;}
-            set { _bonus = value; }
+            get { return _bonus; }
         }
 
 
-        public override decimal MaasHesapla()
+        public override void MaasHesapla()
         {
-            Console.WriteLine("Yonetıcı maas");
-            Console.WriteLine("Çalışma saati: "
-            return 0;
+            Console.WriteLine($"{Name} - {Title}");
+
+            Console.Write("Saatlik ücreti giriniz: ");
+            _saatlikUcret = Convert.ToDecimal(Console.ReadLine());
+
+            Console.Write("Aylık çalışma saatini giriniz: ");
+            _calismaSaati = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Bonus oranını giriniz: ");
+            _bonusOran = Convert.ToDouble(Console.ReadLine());
+
+            _maas = _saatlikUcret * _calismaSaati;
+
+            _bonus = _maas * (decimal)_bonusOran;
+
+           
         }
+
+        public override string BordroIcerikGetir()
+        {
+            return "Maas Bordro, SUBAT 2020" + "\n" +
+
+                          "Personel Ismi: " + Name + "\n" +
+                          "Calisma Saati:" + CalismaSaati + "\n" +
+                          "Ana Odeme:" + Maas + "\n" +
+                          "Bonus Oranı: " + BonusOran + "\n" +
+                          "Bonus " + Bonus + "\n" +
+                          "Toplam Odeme " + (Maas + Bonus) + "\n";
+
+        }
+
+
     }
+  
 }

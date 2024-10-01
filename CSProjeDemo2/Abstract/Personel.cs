@@ -12,6 +12,33 @@ namespace CSProjeDemo2.Abstract
 
         public string Title { get; set; }
 
-        public abstract decimal MaasHesapla();
+        protected decimal _saatlikUcret;
+
+        public decimal SaatlikUcret
+        {
+            get { return _saatlikUcret; }
+        }
+
+
+        protected int _calismaSaati;
+
+        public int CalismaSaati
+        {
+            get { return _calismaSaati; }
+        }
+
+
+        protected decimal _maas;
+
+        public decimal Maas
+        {
+            get { return _maas; }
+        }
+
+        public abstract void MaasHesapla();
+
+        public abstract string BordroIcerikGetir();
+
+        public abstract string CalismaSaati150denAzOlanlar();
     }
 }

@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 namespace CSProjeDemo2.Data
 {
     // DosyaOku sınıfından ihtiyacım olan yerde bir örnek yaratmak yerine static tek örneği kullanmak için static yaptım.
-    public static class DosyaOku
+    public class DosyaOku
     {
-        public static List<Personel> PersonelleriGetir()
+        public List<Personel> PersonelleriGetir()
         {
             // ==> Deserialization
             StreamReader okuyucu = new StreamReader("Personeller.json");
@@ -56,8 +56,6 @@ namespace CSProjeDemo2.Data
 
             return personeller!;
         }
-
-
     }
 
     public class Kisi
