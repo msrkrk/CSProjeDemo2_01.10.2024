@@ -29,6 +29,7 @@ namespace CSProjeDemo2.Data
 
         public override void MaasHesapla()
         {
+            Console.Write("\n");
             Console.WriteLine($"{Name} - {Title}");
 
             Console.Write("Saatlik ücreti giriniz: ");
@@ -37,26 +38,31 @@ namespace CSProjeDemo2.Data
             Console.Write("Aylık çalışma saatini giriniz: ");
             _calismaSaati = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write("Bonus oranını giriniz: ");
+            Console.Write("Bonus oranını giriniz(Ör:1.25): ");
             _bonusOran = Convert.ToDouble(Console.ReadLine());
 
             _maas = _saatlikUcret * _calismaSaati;
 
             _bonus = _maas * (decimal)_bonusOran;
-
-           
+            Console.Write("\n");
         }
+
+        public override decimal ToplamOdenenTutarGetir()
+        {
+            return _maas + _bonus;  
+        }
+
 
         public override string BordroIcerikGetir()
         {
-            return "Maas Bordro, SUBAT 2020" + "\n" +
+            return "Maas Bordro, " + DateTime.Today.ToString("MMMM yyyy") + "\n" +
 
-                          "Personel Ismi: " + Name + "\n" +
-                          "Calisma Saati:" + CalismaSaati + "\n" +
-                          "Ana Odeme:" + Maas + "\n" +
-                          "Bonus Oranı: " + BonusOran + "\n" +
-                          "Bonus " + Bonus + "\n" +
-                          "Toplam Odeme " + (Maas + Bonus) + "\n";
+                          "Personel Ismi:\t" + Name + "\n" +
+                          "Calisma Saati:\t" + CalismaSaati + "\n" +
+                          "Ana Odeme:\t" + Maas + "\n" +
+                          "Bonus Oranı:\t" + BonusOran + "\n" +
+                          "Bonus:\t" + Bonus + "\n" +
+                          "Toplam Odeme:\t" + ToplamOdenenTutarGetir() + "\n";
 
         }
 

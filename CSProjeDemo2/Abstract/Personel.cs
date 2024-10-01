@@ -39,6 +39,6 @@ namespace CSProjeDemo2.Abstract
 
         public abstract string BordroIcerikGetir();
 
-        public abstract string CalismaSaati150denAzOlanlar();
+        public abstract decimal ToplamOdenenTutarGetir();
     }
 }
