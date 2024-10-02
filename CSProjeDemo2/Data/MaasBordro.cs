@@ -26,7 +26,7 @@ namespace CSProjeDemo2.Data
             Console.Write("\t");
             Console.Write("Toplam Tutar");
             Console.Write("\n");
-
+            ///
             foreach (Personel personel in personeller)
             {
                 Console.Write(personel.Name);
