@@ -105,7 +105,7 @@ namespace CSProjeDemo2.Data
             {
                 try
                 {
-                    Console.WriteLine("Bonus oranını giriniz(Ör:1.25): ");
+                    Console.Write("Bonus oranını giriniz(Ör:1.25): ");
                     double bonusOran = Convert.ToDouble(Console.ReadLine().Replace(',', '.'));
 
                     if (bonusOran <= 0)
