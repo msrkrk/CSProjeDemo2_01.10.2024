@@ -55,11 +55,17 @@ namespace CSProjeDemo2.Data
             }
 
             return personeller!;
+            ////abc
+
+
         }
     }
 
     public class Kisi
     {
+
+
+
 
 
         public string Name { get; set; }
