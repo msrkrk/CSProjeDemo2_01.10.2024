@@ -37,7 +37,8 @@ namespace CSProjeDemo2.Data
             {
                 try
                 {
-                    Console.WriteLine("Memuriyet derecesini giriniz: ");
+                    Console.Write("\n");
+                    Console.Write("Memuriyet derecesini giriniz: ");
                     int derece = Convert.ToInt32(Console.ReadLine());
 
                     if (derece != 1 && derece != 2 && derece != 3 && derece != 4)
@@ -55,6 +56,12 @@ namespace CSProjeDemo2.Data
                     durum = true;
                     Console.WriteLine("Sayı giriniz.Memuriyet derecesi en az 1 en fazla 4 olmalıdır.Tekrar giriniz: ");
                 }
+
+                catch (Exception)
+                {
+                    durum = true;
+                    Console.WriteLine("Bilinmeyen bir hata oluştu. Lütfen tekrar deneyin.");
+                }
             }
             durum = true;
 
@@ -62,7 +69,7 @@ namespace CSProjeDemo2.Data
             {
                 try
                 {
-                    Console.WriteLine("Aylık çalışma saatini giriniz: ");
+                    Console.Write("Aylık çalışma saatini giriniz: ");
                     int calismaSaati = Convert.ToInt32(Console.ReadLine());
 
                     if (calismaSaati <= 0)
@@ -80,6 +87,12 @@ namespace CSProjeDemo2.Data
                     durum = true;
                     Console.WriteLine("Geçerli bir çalışma saati giriniz: ");
                 }
+
+                catch (Exception)
+                {
+                    durum = true;
+                    Console.WriteLine("Bilinmeyen bir hata oluştu. Lütfen tekrar deneyin.");
+                }
             }
 
 
@@ -96,20 +109,23 @@ namespace CSProjeDemo2.Data
 
             if (_calismaSaati > 180)
                 _maas = 180 * _saatlikUcret;
+
             else
                 _maas = _calismaSaati * _saatlikUcret;
+            Console.Write("\n");
         }
 
 
 
         public override string BordroIcerikGetir()
         {
-                return "Maas Bordro, SUBAT 2020" + "\n" +
-                    "Personel İsmi: " + Name + "\n" +
-                    "Calisma Saati: " + CalismaSaati + "\n" +
-                    "Ana Odeme: " + _maas + "\n" +
-                    "Mesai Ücreti: " + ekMesaiUcret + "\n" +
-                    "Toplam Odeme :" + ToplamOdenenTutarGetir() + "\n";
+            return "Maas Bordro, " + DateTime.Today.ToString("MMMM yyyy") + "\n" +
+
+                      "Personel Ismi:\t" + Name + "\n" +
+                      "Calisma Saati:\t" + CalismaSaati + "\n" +
+                      "Ana Odeme:\t" + Maas + "\n" +
+                      "Mesai Ücreti:\t" + ekMesaiUcret + "\n" +
+                      "Toplam Odeme:\t" + ToplamOdenenTutarGetir() + "\n";
         }
 
         public override decimal ToplamOdenenTutarGetir()

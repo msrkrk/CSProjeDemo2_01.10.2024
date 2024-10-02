@@ -1,10 +1,14 @@
 ﻿[
   {
-    "name": "ayşe erdem",
+    "NAME": "AYŞE erdem",
     "title": "Yonetici"
   },
   {
     "name": "fatih alkan",
+    "title": "Memur"
+  },
+  {
+    "name": "mehmet arslan",
     "title": "Memur"
   }
 ]

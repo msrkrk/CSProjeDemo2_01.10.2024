@@ -32,14 +32,104 @@ namespace CSProjeDemo2.Data
             Console.Write("\n");
             Console.WriteLine($"{Name} - {Title}");
 
-            Console.Write("Saatlik ücreti giriniz: ");
-            _saatlikUcret = Convert.ToDecimal(Console.ReadLine());
+            bool durum = true;
+            durum = true;
 
-            Console.Write("Aylık çalışma saatini giriniz: ");
-            _calismaSaati = Convert.ToInt32(Console.ReadLine());
+            while (durum)
+            {
+                try
+                {
+                    Console.Write("\n");
+                    Console.Write("Saatlik ücret giriniz: ");
+                    int saatlikUcret = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write("Bonus oranını giriniz(Ör:1.25): ");
-            _bonusOran = Convert.ToDouble(Console.ReadLine());
+                    if (saatlikUcret < 500)
+ 
+                    {
+                        Console.WriteLine("Yöneticilere ait saatlik ücret 500'den küçük olamaz.");
+                    }
+                    else
+                    {
+                        _saatlikUcret = saatlikUcret;
+                        durum = false;
+                    }
+                }
+                catch (FormatException)
+                {
+                    durum = true;
+                    Console.WriteLine("Geçerli bir saatlik ücret giriniz: ");
+                }
+
+                catch (Exception)
+                {
+                    durum = true;
+                    Console.WriteLine("Bilinmeyen bir hata oluştu. Lütfen tekrar deneyin.");
+                }
+            }
+
+            durum = true;
+
+            while (durum)
+            {
+                try
+                {
+                    Console.Write("Aylık çalışma saatini giriniz: ");
+                    int calismaSaati = Convert.ToInt32(Console.ReadLine());
+
+                    if (calismaSaati <= 0)
+                    {
+                        Console.WriteLine("Girdiğiniz çalışma saati geçerli değildir.");
+                    }
+                    else
+                    {
+                        _calismaSaati = calismaSaati;
+                        durum = false;
+                    }
+                }
+                catch (FormatException)
+                {
+                    durum = true;
+                    Console.WriteLine("Geçerli bir çalışma saati giriniz: ");
+                }
+
+                catch (Exception)
+                {
+                    durum = true;
+                    Console.WriteLine("Bilinmeyen bir hata oluştu. Lütfen tekrar deneyin.");
+                }
+            }
+
+            durum = true;
+
+            while (durum)
+            {
+                try
+                {
+                    Console.WriteLine("Bonus oranını giriniz(Ör:1.25): ");
+                    double bonusOran = Convert.ToDouble(Console.ReadLine().Replace(',', '.'));
+
+                    if (bonusOran <= 0)
+                    {
+                        Console.WriteLine("Bonus oranı 0'dan büyük olmalıdır.");
+                    }
+                    else
+                    {
+                        _bonusOran = bonusOran;
+                        durum = false;
+                    }
+                }
+                catch (FormatException)
+                {
+                    durum = true;
+                    Console.WriteLine("Geçerli bir bonus oranı giriniz: ");
+                }
+
+                catch (Exception)
+                {
+                    durum = true;
+                    Console.WriteLine("Bilinmeyen bir hata oluştu. Lütfen tekrar deneyin.");
+                }
+            }
 
             _maas = _saatlikUcret * _calismaSaati;
 
@@ -61,7 +151,7 @@ namespace CSProjeDemo2.Data
                           "Calisma Saati:\t" + CalismaSaati + "\n" +
                           "Ana Odeme:\t" + Maas + "\n" +
                           "Bonus Oranı:\t" + BonusOran + "\n" +
-                          "Bonus:\t" + Bonus + "\n" +
+                          "Bonus:\t\t" + Bonus + "\n" +
                           "Toplam Odeme:\t" + ToplamOdenenTutarGetir() + "\n";
 
         }

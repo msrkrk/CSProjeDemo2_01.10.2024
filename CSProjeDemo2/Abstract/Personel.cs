@@ -19,14 +19,12 @@ namespace CSProjeDemo2.Abstract
             get { return _saatlikUcret; }
         }
 
-
         protected int _calismaSaati;
 
         public int CalismaSaati
         {
             get { return _calismaSaati; }
         }
-
 
         protected decimal _maas;
 
