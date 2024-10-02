@@ -60,6 +60,8 @@ namespace CSProjeDemo2.Data
 
     public class Kisi
     {
+
+
         public string Name { get; set; }
 
 
