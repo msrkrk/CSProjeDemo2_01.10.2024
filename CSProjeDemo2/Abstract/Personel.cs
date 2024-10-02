@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSProjeDemo2.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,10 +34,7 @@ namespace CSProjeDemo2.Abstract
             get { return _maas; }
         }
 
-        public abstract void MaasHesapla();
-
-        public abstract string BordroIcerikGetir();
-
+        public abstract void MaasHesapla(); 
         public abstract decimal ToplamOdenenTutarGetir();
     }
 }

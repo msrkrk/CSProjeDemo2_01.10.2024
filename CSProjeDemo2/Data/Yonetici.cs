@@ -106,7 +106,7 @@ namespace CSProjeDemo2.Data
                 try
                 {
                     Console.Write("Bonus oranını giriniz(Ör:1.25): ");
-                    double bonusOran = Convert.ToDouble(Console.ReadLine().Replace(',', '.'));
+                    double bonusOran = Convert.ToDouble(Console.ReadLine().Replace('.', ','));
 
                     if (bonusOran <= 0)
                     {
@@ -143,18 +143,20 @@ namespace CSProjeDemo2.Data
         }
 
 
-        public override string BordroIcerikGetir()
-        {
-            return "Maas Bordro, " + DateTime.Today.ToString("MMMM yyyy") + "\n" +
+        //public override MaasBordro BordroIcerikGetir()
+        //{
+           
 
-                          "Personel Ismi:\t" + Name + "\n" +
-                          "Calisma Saati:\t" + CalismaSaati + "\n" +
-                          "Ana Odeme:\t" + Maas + "\n" +
-                          "Bonus Oranı:\t" + BonusOran + "\n" +
-                          "Bonus:\t\t" + Bonus + "\n" +
-                          "Toplam Odeme:\t" + ToplamOdenenTutarGetir() + "\n";
+            //return "Maas Bordro, " + DateTime.Today.ToString("MMMM yyyy") + "\n" +
 
-        }
+            //              "Personel Ismi:\t" + Name + "\n" +
+            //              "Calisma Saati:\t" + CalismaSaati + "\n" +
+            //              "Ana Odeme:\t" + Maas + "\n" +
+            //              "Bonus Oranı:\t" + BonusOran + "\n" +
+            //              "Bonus:\t\t" + Bonus + "\n" +
+            //              "Toplam Odeme:\t" + ToplamOdenenTutarGetir() + "\n";
+
+        //}
 
 
     }

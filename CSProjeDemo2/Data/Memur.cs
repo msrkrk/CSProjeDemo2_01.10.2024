@@ -29,7 +29,7 @@ namespace CSProjeDemo2.Data
         }
 
         public decimal ekMesaiUcret = 0;
-        public override void MaasHesapla()
+        public  override void MaasHesapla()
         {
             Console.WriteLine($"{Name} - {Title}");
             bool durum = true;
@@ -117,18 +117,19 @@ namespace CSProjeDemo2.Data
 
 
 
-        public override string BordroIcerikGetir()
-        {
-            return "Maas Bordro, " + DateTime.Today.ToString("MMMM yyyy") + "\n" +
+        //public override  MaasBordro BordroIcerikGetir()
+        //{
+           
+            //return "Maas Bordro, " + DateTime.Today.ToString("MMMM yyyy") + "\n" +
 
-                      "Personel Ismi:\t" + Name + "\n" +
-                      "Calisma Saati:\t" + CalismaSaati + "\n" +
-                      "Ana Odeme:\t" + Maas + "\n" +
-                      "Mesai Ücreti:\t" + ekMesaiUcret + "\n" +
-                      "Toplam Odeme:\t" + ToplamOdenenTutarGetir() + "\n";
-        }
+            //          "Personel Ismi:\t" + Name + "\n" +
+            //          "Calisma Saati:\t" + CalismaSaati + "\n" +
+            //          "Ana Odeme:\t" + Maas + "\n" +
+            //          "Mesai Ücreti:\t" + ekMesaiUcret + "\n" +
+            //          "Toplam Odeme:\t" + ToplamOdenenTutarGetir() + "\n";
+        //}
 
-        public override decimal ToplamOdenenTutarGetir()
+        public override  decimal ToplamOdenenTutarGetir()
         {
             return _maas + ekMesaiUcret;
         }

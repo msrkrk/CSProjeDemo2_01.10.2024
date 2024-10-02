@@ -23,7 +23,7 @@ namespace CSProjeDemo2.Data
 
             okuyucu.Close();
 
-            var getirilenNesne = JsonSerializer.Deserialize<List<Kisi>>(
+            var getirilenNesne = JsonSerializer.Deserialize<List<Yonetici>>(
                 okunanMetin,
                 new JsonSerializerOptions
                 {
@@ -57,22 +57,8 @@ namespace CSProjeDemo2.Data
             }
 
             return personeller!;
-            ////abc
-            ///fgdfdfgdf
-            //bfdgfdg
+           
         }
     }
 
-    public class Kisi
-    {
-
-
-
-
-
-        public string Name { get; set; }
-
-
-        public string Title { get; set; }
-    }
 }

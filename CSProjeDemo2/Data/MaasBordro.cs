@@ -3,20 +3,50 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace CSProjeDemo2.Data
 {
     public class MaasBordro
     {
+        public string PersonelIsmi { get; set; }
+
+        public string CalismaSaati { get; set; }
+
+        public string AnaOdeme { get; set; }
+
+        public string ToplamOdeme { get; set; }
+
+
+       
+
         // Personeli parametre alıyoruz niye statik yapamıyoruz?
         public void BodroYaz(Personel personel)
         {
-            StreamWriter okuyucu = new StreamWriter(personel.Name + ".txt");
+            string path = personel.Name + ".txt";
+            //StreamWriter okuyucu = new StreamWriter(path);
+            string jsonData= $"Maas Bordro, {DateTime.Today.ToString("MMMM yyyy")}";
+            if (personel.Title== "Yonetici")
+            {
+                MaasBordroYonetici maasBordro = new MaasBordroYonetici();
+                maasBordro.BordroIcerikGetir((Yonetici)personel);
+                jsonData += JsonSerializer.Serialize(maasBordro, new JsonSerializerOptions { WriteIndented = true });
+            } 
+            else if (personel.Title=="Memur")
+            {
+                MaasBordroMemur maasBordro = new MaasBordroMemur();
+                 maasBordro.BordroIcerikGetir((Memur)personel);
+                jsonData += JsonSerializer.Serialize(maasBordro, new JsonSerializerOptions { WriteIndented = true });
+            }
 
-            okuyucu.Write(personel.BordroIcerikGetir());
+           
 
-            okuyucu.Close();
+            //okuyucu.Write(personel.BordroIcerikGetir());
+            File.WriteAllText(path, jsonData);
+
+            //okuyucu.Close();
         }
 
         public void OzetYaz(List<Personel> personeller)
