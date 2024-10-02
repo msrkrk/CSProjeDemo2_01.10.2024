@@ -14,7 +14,7 @@ namespace CSProjeDemo2.Data
     {
         public List<Personel> PersonelleriGetir()
         {
-            //----------------------
+            //----
 
             // ==> Deserialization
             StreamReader okuyucu = new StreamReader("Personeller.json");
