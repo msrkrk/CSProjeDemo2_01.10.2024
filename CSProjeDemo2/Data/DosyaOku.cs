@@ -62,6 +62,7 @@ namespace CSProjeDemo2.Data
     {
         public string Name { get; set; }
 
+
         public string Title { get; set; }
     }
 }
