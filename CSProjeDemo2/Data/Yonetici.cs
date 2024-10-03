@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -106,7 +107,7 @@ namespace CSProjeDemo2.Data
                 try
                 {
                     Console.Write("Bonus oranını giriniz(Ör:1.25): ");
-                    double bonusOran = Convert.ToDouble(Console.ReadLine().Replace(',', '.'));
+                    double bonusOran = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
                     if (bonusOran <= 0)
                     {

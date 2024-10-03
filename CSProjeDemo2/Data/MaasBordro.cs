@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
@@ -11,12 +12,18 @@ namespace CSProjeDemo2.Data
 {
     public class MaasBordro
     {
+
+        [JsonPropertyOrder(1)]
         public string PersonelIsmi { get; set; }
 
+        [JsonPropertyOrder(2)]
         public string CalismaSaati { get; set; }
 
+
+        [JsonPropertyOrder(100)]
         public string AnaOdeme { get; set; }
 
+        [JsonPropertyOrder(101)]
         public string ToplamOdeme { get; set; }
 
 
