@@ -15,7 +15,7 @@ namespace CSProjeDemo2.Data
         {
              
             PersonelIsmi = personel.Name;
-            CalismaSaati = CalismaSaati;
+            CalismaSaati = personel.CalismaSaati.ToString();
             AnaOdeme = personel.Maas.ToString();
             MesaiUcreti = personel.ekMesaiUcret.ToString();
             ToplamOdeme = personel.ToplamOdenenTutarGetir().ToString();

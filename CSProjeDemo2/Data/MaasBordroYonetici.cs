@@ -17,7 +17,7 @@ namespace CSProjeDemo2.Data
         public void BordroIcerikGetir(Yonetici personel)
         {
             PersonelIsmi = personel.Name;
-            CalismaSaati = CalismaSaati;
+            CalismaSaati = personel.CalismaSaati.ToString();
             AnaOdeme = personel.Maas.ToString();
             BonusOrani = personel.BonusOran.ToString();
             Bonus = personel.Bonus.ToString().Replace(",",".");
