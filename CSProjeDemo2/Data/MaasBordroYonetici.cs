@@ -12,14 +12,14 @@ namespace CSProjeDemo2.Data
 {
     internal class MaasBordroYonetici:MaasBordro
     {
-
+        // Text dosyasına yazılacak yöneticiye has özellikleri içerir.
         [JsonPropertyOrder(10)]
         public string BonusOrani { get; set; }
 
         [JsonPropertyOrder(11)]
         public string Bonus { get; set; }
 
-
+        // Maaş bordro yönetici bilgilerini parametre verilen yönetici bilgileri ile doldurur.
         public void BordroIcerikGetir(Yonetici personel)
         {
             PersonelIsmi = personel.Name;

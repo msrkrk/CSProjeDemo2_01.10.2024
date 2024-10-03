@@ -8,10 +8,10 @@ using CSProjeDemo2.Abstract;
 
 namespace CSProjeDemo2.Data
 {
+    // Memura has özellikleri hesaplar.
     public class Yonetici : Personel
     {
-        // Aşağıdaki özelliklerin setterları yok çünkü set özelliğini bu sınıf içeresinde encapsule ediyoruz. Dışardan set yasak!
-
+     
         private double _bonusOran;
 
         public double BonusOran
@@ -27,7 +27,7 @@ namespace CSProjeDemo2.Data
             get { return _bonus; }
         }
 
-
+        // Yönetici Toplam Ödemesinin hesaplanması ve gerekli bilgileri kullanıcıdan alınmasını sağlar.
         public override void MaasHesapla()
         {
             Console.Write("\n");
@@ -142,24 +142,6 @@ namespace CSProjeDemo2.Data
         {
             return _maas + _bonus;  
         }
-
-
-        //public override MaasBordro BordroIcerikGetir()
-        //{
-           
-
-            //return "Maas Bordro, " + DateTime.Today.ToString("MMMM yyyy") + "\n" +
-
-            //              "Personel Ismi:\t" + Name + "\n" +
-            //              "Calisma Saati:\t" + CalismaSaati + "\n" +
-            //              "Ana Odeme:\t" + Maas + "\n" +
-            //              "Bonus Oranı:\t" + BonusOran + "\n" +
-            //              "Bonus:\t\t" + Bonus + "\n" +
-            //              "Toplam Odeme:\t" + ToplamOdenenTutarGetir() + "\n";
-
-        //}
-
-
     }
   
 }

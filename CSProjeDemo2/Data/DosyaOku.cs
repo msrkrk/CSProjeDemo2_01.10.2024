@@ -9,14 +9,13 @@ using System.Threading.Tasks;
 
 namespace CSProjeDemo2.Data
 {
-    // DosyaOku sınıfından ihtiyacım olan yerde bir örnek yaratmak yerine static tek örneği kullanmak için static yaptım.
+    
     public class DosyaOku
     {
-        public List<Personel> PersonelleriGetir()
+        // Personeller.json dosyasındaki bilgilerin alındığı metoddur.
+        public List<Personel> PersonelleriGetir()  
         {
-            //deneme
-
-            // ==> Deserialization
+   
             StreamReader okuyucu = new StreamReader("Personeller.json");
 
             string okunanMetin = okuyucu.ReadToEnd();
@@ -30,7 +29,7 @@ namespace CSProjeDemo2.Data
                     PropertyNameCaseInsensitive = true
                 });
             
-
+            // Personeller.json dosysasındaki verileri Yonetici ve Memur Title'larına göre ayırır.
             List<Personel> personeller = new List<Personel>();
 
             foreach (var kisi in getirilenNesne)
@@ -52,12 +51,8 @@ namespace CSProjeDemo2.Data
 
                     personeller.Add(memur);
                 }
-
-
             }
-
             return personeller!;
-           
         }
     }
 

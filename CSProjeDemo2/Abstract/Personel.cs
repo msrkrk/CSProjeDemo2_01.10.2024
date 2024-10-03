@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace CSProjeDemo2.Abstract
 {
+    //Personel sınıfı, memur ve yönetici alt sınıflarına ait ortak özellik ve metodları içerir.
     public abstract class Personel
     {
         public string Name { get; set; }

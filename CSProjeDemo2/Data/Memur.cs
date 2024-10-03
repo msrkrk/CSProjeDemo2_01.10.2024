@@ -7,6 +7,7 @@ using CSProjeDemo2.Abstract;
 
 namespace CSProjeDemo2.Data
 {
+    // Memura has özellikleri hesaplar.
     public class Memur : Personel
     {
         private int _memuriyetDerecesi;
@@ -28,6 +29,7 @@ namespace CSProjeDemo2.Data
             }
         }
 
+        // Memur Toplam Ödemesinin hesaplanması ve gerekli bilgileri kullanıcıdan alınmasını sağlar.
         public decimal ekMesaiUcret = 0;
         public  override void MaasHesapla()
         {
@@ -95,7 +97,6 @@ namespace CSProjeDemo2.Data
                 }
             }
 
-
             int ekMesaiSaati = _calismaSaati - 180;
 
             if (ekMesaiSaati <= 0)
@@ -115,19 +116,6 @@ namespace CSProjeDemo2.Data
             Console.Write("\n");
         }
 
-
-
-        //public override  MaasBordro BordroIcerikGetir()
-        //{
-           
-            //return "Maas Bordro, " + DateTime.Today.ToString("MMMM yyyy") + "\n" +
-
-            //          "Personel Ismi:\t" + Name + "\n" +
-            //          "Calisma Saati:\t" + CalismaSaati + "\n" +
-            //          "Ana Odeme:\t" + Maas + "\n" +
-            //          "Mesai Ücreti:\t" + ekMesaiUcret + "\n" +
-            //          "Toplam Odeme:\t" + ToplamOdenenTutarGetir() + "\n";
-        //}
 
         public override  decimal ToplamOdenenTutarGetir()
         {

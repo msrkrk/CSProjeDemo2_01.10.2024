@@ -10,15 +10,14 @@ using System.Xml.Linq;
 
 namespace CSProjeDemo2.Data
 {
+    // Text dosyasına yazılacak ortak özellikleri içerir.
     public class MaasBordro
     {
-
         [JsonPropertyOrder(1)]
         public string PersonelIsmi { get; set; }
 
         [JsonPropertyOrder(2)]
         public string CalismaSaati { get; set; }
-
 
         [JsonPropertyOrder(100)]
         public string AnaOdeme { get; set; }
@@ -27,14 +26,12 @@ namespace CSProjeDemo2.Data
         public string ToplamOdeme { get; set; }
 
 
-       
-
-        // Personeli parametre alıyoruz niye statik yapamıyoruz?
-        public void BodroYaz(Personel personel)
+        // BordroYaz metodu kişilere ait bordro dosyalarını oluşturup, içine BordroIcerikGetir metodunu yazar.
+        public void BordroYaz(Personel personel)
         {
             string path = personel.Name + ".txt";
-            //StreamWriter okuyucu = new StreamWriter(path);
-            string jsonData= $"Maas Bordro, {DateTime.Today.ToString("MMMM yyyy")}";
+          
+            string jsonData= $"Maas Bordro, {DateTime.Today.ToString("MMMM yyyy")}\n";
             if (personel.Title== "Yonetici")
             {
                 MaasBordroYonetici maasBordro = new MaasBordroYonetici();
@@ -48,14 +45,10 @@ namespace CSProjeDemo2.Data
                 jsonData += JsonSerializer.Serialize(maasBordro, new JsonSerializerOptions { WriteIndented = true });
             }
 
-           
-
-            //okuyucu.Write(personel.BordroIcerikGetir());
             File.WriteAllText(path, jsonData);
-
-            //okuyucu.Close();
         }
 
+        // Program sonunda consola yazılacak olan özet bilgileri içerir.
         public void OzetYaz(List<Personel> personeller)
         {
             Console.Write("\n");
